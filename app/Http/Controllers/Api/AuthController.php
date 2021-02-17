@@ -48,6 +48,24 @@ class AuthController extends Controller
      *    )
      * ),
      * @OA\Parameter(
+     *    description="Password",
+     *    in="query",
+     *    name="password",
+     *    required=true,
+     *    @OA\Schema(
+     *       type="string",
+     *    )
+     * ),
+     * @OA\Parameter(
+     *    description="Confirm Password [Should Match With Password]",
+     *    in="query",
+     *    name="password_confirmation",
+     *    required=true,
+     *    @OA\Schema(
+     *       type="string",
+     *    )
+     * ),
+     * @OA\Parameter(
      *    description="User Contact Number",
      *    in="query",
      *    name="contact_no",
@@ -192,7 +210,7 @@ class AuthController extends Controller
      * summary="Get Auth User",
      * security={{"bearer_token":{}}},
      * description="Get Auth User",
-     * operationId="refresh",
+     * operationId="user",
      * tags={"Auth"},
      * @OA\Response(
      *    response=200,

@@ -48,6 +48,24 @@
                         }
                     },
                     {
+                        "name": "password",
+                        "in": "query",
+                        "description": "Password",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password_confirmation",
+                        "in": "query",
+                        "description": "Confirm Password [Should Match With Password]",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
                         "name": "contact_no",
                         "in": "query",
                         "description": "User Contact Number",
@@ -218,7 +236,7 @@
                 ],
                 "summary": "Get Auth User",
                 "description": "Get Auth User",
-                "operationId": "refresh",
+                "operationId": "user",
                 "responses": {
                     "200": {
                         "description": "Response of login user"
