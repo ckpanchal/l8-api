@@ -7,24 +7,23 @@ use Illuminate\Http\Request;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
+use App\Models\Role;
 use JWTAuth;
 
 class AuthController extends Controller
 {
-    public function __construct() 
-    {
-        $this->middleware('auth:api', ['except' => ['login', 'register']]);
-    }
-
     public function register(RegisterRequest $request) 
     {
         $user = User::create(array_merge(
                     $request->input(),
                     ['password' => bcrypt($request->password)]
                 ));
-
+        $role = Role::findByName('User');
+        if ($role) {
+            $user->assignRole($role);
+        }
         return response()->json([
-            'message' => 'User login successfully.',
+            'message' => 'User successfully registered.',
             'user' => $user
         ], 201);
     }
