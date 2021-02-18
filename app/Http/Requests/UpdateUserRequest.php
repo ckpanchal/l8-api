@@ -29,6 +29,7 @@ class UpdateUserRequest extends FormRequest
             'name' => 'required|string|between:2,100',
             'email' => 'required|string|email|max:100|unique:users,email,'.$userId,
             'username' => 'required|string|max:50|unique:users,username,'.$userId,
+            'contact_no' => 'required|digits:10'
         ];
     }
 }

@@ -38,5 +38,6 @@ Route::group(['middleware' => 'jwt.auth'], function () {
 		Route::get('/user/list', [AdminController::class, 'listUser'])->name('admin.user.list');
 		Route::put('/user/{id}', [AdminController::class, 'updateUser'])->name('admin.user.update');
 		Route::delete('/user/{id}', [AdminController::class, 'destroyUser'])->name('admin.user.destroy');
+		Route::put('/user/approve/{id}', [AdminController::class, 'approveUser'])->name('admin.user.approve');
 	});
 });
